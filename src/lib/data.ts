@@ -44,7 +44,6 @@ export const categories: Category[] = [
 ];
 
 export const navigation = [
-  { name: 'Home', href: '/' },
   { name: 'Viaggi', href: '/viaggi' },
   { name: 'Moto', href: '/moto' },
   { name: 'Cammini', href: '/cammini' },
