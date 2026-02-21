@@ -22,7 +22,11 @@ export default function ViaggiPage() {
           {trips.map((trip, index) => (
             <div
               key={trip.slug}
-              className="min-h-[320px] lg:min-h-0 lg:col-start-1 lg:row-start-1 lg:row-span-12 lg:col-span-2"
+              className={
+                index === 0
+                  ? 'min-h-[320px] lg:min-h-0 lg:col-start-1 lg:row-start-1 lg:row-span-12'
+                  : 'min-h-[320px] lg:min-h-0 lg:col-start-2 lg:row-start-1 lg:row-span-12'
+              }
             >
               <ViaggioCard trip={trip} index={index} />
             </div>

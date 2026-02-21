@@ -114,6 +114,83 @@ export const trips: Trip[] = [
       },
     ],
   },
+  {
+    slug: 'dolomiti-2026',
+    title: 'Dolomiti',
+    subtitle: 'Settimana bianca tra Corvara, Sellaronda e le vette UNESCO',
+    description:
+      'Settimana bianca nelle Dolomiti: sci a Corvara, Sellaronda, Marmolada, 5 Torri, Cortina, Ortisei, Val di Fassa, Falzarego e Armentarola.',
+    coverImage: `${CLOUD}/v1769031242/4-IMG_3652_ayzprm.jpg`,
+    dates: { start: '2026-01-10', end: '2026-01-17' },
+    location: 'Dolomiti',
+    duration: '8 giorni',
+    introductionText:
+      "Le Dolomiti sono uno di quei posti che avevo sempre sognato di sciare. Questa volta base a Corvara, nel cuore del Sellaronda: un anello che collega quattro passi e quattro valli in un unico giro sugli sci. Oltre al Sellaronda ho esplorato la Marmolada, le 5 Torri, Cortina, e mi sono spinto fino a Ortisei, Santa Cristina e la Val di Fassa. Il Passo Falzarego e l'Armentarola hanno chiuso un viaggio indimenticabile tra le vette patrimonio UNESCO.",
+    mapPoints: [
+      { name: 'Corvara', x: 120, y: 100 },
+      { name: 'Marmolada', x: 180, y: 140 },
+      { name: 'Cortina', x: 200, y: 60 },
+      { name: 'Ortisei', x: 50, y: 50 },
+      { name: 'Val di Fassa', x: 130, y: 180 },
+      { name: 'Armentarola', x: 80, y: 130 },
+    ],
+    narrativeBlocks: [
+      {
+        sectionTitle: 'Corvara e il Sellaronda',
+        narrative:
+          "Corvara è stata la mia base per tutta la settimana. Dal paese si accede direttamente al Sellaronda, il famoso giro che in un'unica giornata ti porta attraverso quattro passi – Campolongo, Pordoi, Sella e Gardena – collegando Corvara, Arabba, Canazei e Selva. È un'esperienza che ogni sciatore delle Dolomiti dovrebbe fare almeno una volta: piste ben preparate, panorami mozzafiato e la sensazione di aver percorso un anello intero attorno al massiccio dello Sella.",
+        image: `${CLOUD}/v1769031248/10-IMG_3568_vmx1zc.jpg`,
+        imageAlt: 'Corvara e le Dolomiti',
+        side: 'right',
+        imageSize: 'medium',
+      },
+      {
+        sectionTitle: 'Giro Verde e Giro Arancio',
+        narrative:
+          "Oltre al Sellaronda classico ho provato anche il Giro Verde e il Giro Arancio, due varianti che permettono di esplorare zone diverse del comprensorio. Il Giro Verde segue un percorso più accessibile, ideale per godersi il paesaggio senza troppe piste impegnative. Il Giro Arancio aggiunge varietà e chilometri, regalando viste sempre diverse sulle cime dolomitiche che si tingono di rosa al tramonto.",
+        image: `${CLOUD}/v1769031244/15-IMG_3485_ksjlk8.jpg`,
+        imageAlt: 'Piste sulle Dolomiti',
+        side: 'left',
+        imageSize: 'small',
+      },
+      {
+        sectionTitle: 'Marmolada, 5 Torri e Cortina',
+        narrative:
+          "La Marmolada, la Regina delle Dolomiti, con il suo ghiacciaio e la sua forma inconfondibile, è stata una delle tappe più emozionanti. Da lì mi sono spostato verso le 5 Torri, uno dei gruppi più iconici, con quelle forme che sembrano uscite da un libro di fiabe. Cortina non poteva mancare: la perla delle Dolomiti, elegante e sempre suggestiva, incorniciata dalle montagne che hanno fatto da sfondo alle Olimpiadi.",
+        image: `${CLOUD}/v1769031243/12-IMG_3537_trvy6m.jpg`,
+        imageAlt: 'Marmolada e le Dolomiti',
+        side: 'right',
+        imageSize: 'large',
+      },
+      {
+        sectionTitle: 'Ortisei e Seceda',
+        narrative:
+          "Ho raggiunto Ortisei e da lì sono salito in Seceda, la terrazza panoramica sopra la Val Gardena. La vista dalle seggiovie e dalle piste di Seceda è spettacolare: le vette si dispiegano a 360 gradi e quando il tempo è limpido si vedono le montagne fino all'orizzonte. Ortisei stesso è un borgo caratteristico, con le sue case in legno e l'atmosfera tirolese che si respira in ogni angolo.",
+        image: `${CLOUD}/v1769031242/5-IMG_3639_csemol.jpg`,
+        imageAlt: 'Seceda, Val Gardena',
+        side: 'left',
+        imageSize: 'medium',
+      },
+      {
+        sectionTitle: 'Santa Cristina e Val di Fassa',
+        narrative:
+          "Santa Cristina, nel cuore della Val Gardena, è un altro dei paesi che ho visitato durante la settimana. Poi la Val di Fassa: una valle lunga e suggestiva che si estende verso il Trentino, con il Catinaccio e il gruppo del Sassolungo che dominano il panorama. Sciare qui significa immergersi in paesaggi che sembrano dipinti, con le creste dolomitiche che cambiano colore con la luce del sole.",
+        image: `${CLOUD}/v1769031242/7-IMG_3596_icra3k.jpg`,
+        imageAlt: 'Val di Fassa',
+        side: 'right',
+        imageSize: 'small',
+      },
+      {
+        sectionTitle: 'Passo Falzarego e Armentarola',
+        narrative:
+          "Il Passo Falzarego collega la Val Badia con Cortina e offre piste panoramiche con vista sulla Tofana e sulle altre cime dell'Ampezzo. L'Armentarola, infine, è una delle piste più celebri delle Dolomiti: un lungo canalone che scende dalla Val di Fassa verso la Val Badia, spesso percorsa con l'ausilio del gatto delle nevi per la risalita. Un modo unico per chiudere una settimana tra le vette più belle del mondo.",
+        image: `${CLOUD}/v1769031241/3-IMG_3661_qx3ucy.jpg`,
+        imageAlt: 'Passo Falzarego',
+        side: 'left',
+        imageSize: 'medium',
+      },
+    ],
+  },
 ];
 
 export function getTripBySlug(slug: string): Trip | undefined {
