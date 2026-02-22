@@ -27,9 +27,11 @@ export default function ViaggioMapSection({
           <p className="font-mono text-xs text-gray-400 tracking-widest uppercase mb-4">
             Introduzione
           </p>
-          <p className="text-base font-light leading-relaxed text-gray-600">
-            {introductionText}
-          </p>
+          <div className="text-base font-light leading-relaxed text-gray-600 space-y-4">
+            {introductionText.split('\n\n').map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </div>
     </div>

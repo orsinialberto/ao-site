@@ -14,7 +14,7 @@ export const trips: Trip[] = [
     location: 'Cambogia',
     duration: '14 giorni',
     introductionText:
-      "La Cambogia è uno di quei paesi che ti sorprendono appena metti piede fuori dall'aeroporto. Prima di partire conoscevo poco della sua storia, ma una volta lì ho scoperto un mondo ricco, intenso, a tratti luminoso e a tratti doloroso. Qui è fiorita la più grande civiltà del Sud-Est asiatico, la civiltà di Angkor; è stata colonia francese, lasciando in eredità angoli dall'insolito fascino europeo; e purtroppo ha vissuto una delle tragedie più terribili del Novecento con il regime dei Khmer Rossi.",
+      "Il mio viaggio in Cambogia è iniziato da Phnom Penh, una capitale caotica e piena di contrasti, per poi raggiungere Battambang, dove ho incontrato la Cambogia più autentica e rurale. Da lì, un lento viaggio in barca mi ha condotto fino a Siem Reap, porta d’ingresso agli straordinari templi di Angkor, silenziosa testimonianza di un passato grandioso.\n\nIl percorso è poi proseguito verso sud, tra le piantagioni di pepe di Kampot e il mercato del pesce di Kep, dove la vita quotidiana scorre semplice, scandita dal mare e dalle tradizioni.\n\nUn viaggio attraverso la storia, i paesaggi e le persone, che mi ha permesso di scoprire una Cambogia autentica e indimenticabile.",
     mapPoints: [
       { name: 'Phnom Penh', x: 220, y: 175 },
       { name: 'Battambang', x: 24, y: 36 },
@@ -25,7 +25,7 @@ export const trips: Trip[] = [
       {
         sectionTitle: 'Phnom Penh – Caos e mercati',
         narrative:
-          "Phnom Penh, la capitale della Cambogia, è una città fatta di contrasti così forti da lasciarti disorientato fin dal primo istante. Il mio primo impatto è stato quasi traumatico: prendo il primo tuk tuk della mia vita e ancora oggi non so spiegarmi come siamo riusciti ad arrivare sani e salvi all'ostello. Il traffico è puro caos, un'entropia totale in cui sembra non esistere alcuna regola… eppure tutto scorre, tutto funziona. Le strade sono invase da tuk tuk e remork moto, con motorini che si infilano in ogni spazio possibile.\n\nSono soprattutto i mercati ad avermi colpito: rappresentano la vera Asia, quella che immaginavo prima di partire. Gente seduta a terra che vende qualunque tipo di cibo, bancarelle coperte da lamiere, vicoli talmente stretti da farti perdere l'orientamento. Per i cambogiani è normalità; per me è stato uno shock culturale affascinante.",
+          "Phnom Penh è una città caotica e intensamente trafficata, dove il movimento è continuo e sembra non fermarsi mai. Le strade sono attraversate da un flusso costante di tuk tuk, remork moto e motorini che si intrecciano in ogni direzione, creando un equilibrio spontaneo che, nonostante l’apparente disordine, funziona perfettamente. Muoversi in tuk tuk è uno dei modi più autentici per vivere la città e osservare da vicino il ritmo della vita quotidiana.\n\nI mercati rappresentano l’espressione più genuina di Phnom Penh. Tra bancarelle fitte, strutture improvvisate e corridoi stretti, si svolge gran parte della vita locale. Qui si vende e si compra di tutto, soprattutto cibo, in un’atmosfera intensa e vivace.",
         image: `${CLOUD}/v1771064462/IMG_0124_ry9mbq.jpg`,
         imageAlt: 'Palazzo reale, Phnom Penh',
         side: 'right',
@@ -34,7 +34,7 @@ export const trips: Trip[] = [
       {
         sectionTitle: 'Phnom Penh – Storia e cibo',
         narrative:
-          "Ho visitato le principali attrazioni della città: il Museo Nazionale, il Palazzo Reale e la Pagoda d'Argento. Ma nulla mi ha colpito quanto un Killing Field appena fuori Phnom Penh. Ne sono uscito scosso. La sensazione era la stessa che avevo provato visitando un campo di concentramento nazista: un'aria pesante, un silenzio che ti schiaccia. Eppure ho avuto la sensazione che i cambogiani stiano vivendo una fase nuova, più serena.\n\nPhnom Penh non è solo storia e caos: è anche il luogo dove ho mangiato il miglior cibo di tutta la Cambogia. Ho provato le rane fritte, il Lok Lak e l'Amok di pesce, una vera delizia che ancora oggi mi fa venire l'acquolina in bocca. A distanza di tempo non so ancora dire con certezza se Phnom Penh mi sia piaciuta oppure no. Forse è proprio per questo che mi è rimasta dentro: perché non ti lascia indifferente.",
+          "Ho visitato alcune delle principali attrazioni di Phnom Penh, come il Museo Nazionale, il Palazzo Reale e la Pagoda d’Argento, luoghi che raccontano la storia e l’identità culturale del paese. Ma l’esperienza più intensa è stata la visita a un Killing Field appena fuori dalla città. È un luogo che trasmette una sensazione difficile da descrivere: l’aria sembra immobile, il silenzio è profondo e opprimente, e ogni cosa invita alla riflessione su ciò che è accaduto.\n\nPhnom Penh è anche una città in cui il cibo occupa un ruolo centrale nella vita quotidiana. Nei mercati e nei ristoranti locali si possono scoprire sapori autentici della tradizione cambogiana, come le rane fritte, il Lok Lak e l’Amok di pesce, preparato con spezie e latte di cocco. Piatti semplici ma ricchi di gusto, che raccontano la cultura e le abitudini del paese attraverso i suoi sapori.",
         image: `${CLOUD}/v1763735049/photo-28_m2ekfl.jpg`,
         imageAlt: 'Phnom Penh',
         side: 'left',
