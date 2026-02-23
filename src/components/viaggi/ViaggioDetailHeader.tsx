@@ -22,7 +22,7 @@ export default function ViaggioDetailHeader({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="flex flex-col items-center text-center px-8 pt-16 lg:pt-24 pb-20 lg:pb-32"
+      className="flex flex-col items-center text-center px-8 pt-8 lg:pt-12 pb-20 lg:pb-32"
     >
       <h1 className="text-4xl lg:text-5xl font-light tracking-wider text-gray-900 mb-3">
         {title}

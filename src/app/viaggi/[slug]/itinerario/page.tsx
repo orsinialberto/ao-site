@@ -1,17 +1,18 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { trips, getTripBySlug } from '@/lib/viaggi';
-import ViaggioStageBlock from '@/components/viaggi/ViaggioStageBlock';
 import ViaggioDetailHeader from '@/components/viaggi/ViaggioDetailHeader';
-import ViaggioMapSection from '@/components/viaggi/ViaggioMapSection';
 import ViaggioTabs from '@/components/viaggi/ViaggioTabs';
+import ViaggioItinerary from '@/components/viaggi/ViaggioItinerary';
 
 // ---------------------------------------------------------------------------
 // Static params & metadata
 // ---------------------------------------------------------------------------
 
 export async function generateStaticParams() {
-  return trips.map((v) => ({ slug: v.slug }));
+  return trips
+    .filter((v) => v.itinerary && v.itinerary.length > 0)
+    .map((v) => ({ slug: v.slug }));
 }
 
 export async function generateMetadata({
@@ -23,8 +24,8 @@ export async function generateMetadata({
   const trip = getTripBySlug(slug);
   if (!trip) return {};
   return {
-    title: `${trip.title} | Alberto Orsini`,
-    description: trip.description,
+    title: `Itinerario ${trip.title} | Alberto Orsini`,
+    description: `Itinerario giorno per giorno del viaggio in ${trip.location}.`,
   };
 }
 
@@ -55,26 +56,21 @@ function formatDates(start: string, end: string): string {
 // Page
 // ---------------------------------------------------------------------------
 
-export default async function ViaggioDetailPage({
+export default async function ViaggioItinerarioPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
   const trip = getTripBySlug(slug);
-  if (!trip) notFound();
+  if (!trip || !trip.itinerary || trip.itinerary.length === 0) notFound();
 
   const dateLabel = formatDates(trip.dates.start, trip.dates.end);
-  const blocks = trip.narrativeBlocks;
 
   return (
     <div className="min-h-screen bg-white">
-      {/* ─── Tabs ─── */}
-      {trip.itinerary && trip.itinerary.length > 0 && (
-        <ViaggioTabs slug={slug} />
-      )}
+      <ViaggioTabs slug={slug} />
 
-      {/* ─── Header ─── */}
       <ViaggioDetailHeader
         title={trip.title}
         subtitle={trip.subtitle}
@@ -83,40 +79,10 @@ export default async function ViaggioDetailPage({
         duration={trip.duration}
       />
 
-      {/* ─── Map with introduction ─── */}
-      {trip.mapPoints &&
-        trip.mapPoints.length > 0 &&
-        trip.introductionText && (
-          <ViaggioMapSection
-            mapPoints={trip.mapPoints}
-            introductionText={trip.introductionText}
-          />
-        )}
-
-      {/* ─── Narrative blocks ─── */}
-      <div className="flex flex-col gap-20 lg:gap-32">
-        {blocks.map((block, i) => (
-          <ViaggioStageBlock key={i} block={block} index={i} />
-        ))}
-      </div>
-
-      {/* ─── Closing (same style as trails) ─── */}
-      <div className="py-24 lg:py-40 flex flex-col items-center text-center px-8">
-        <div className="w-16 h-px bg-gray-300 mb-10" />
-
-        <p className="font-mono text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-2">
-          {trip.location}
-        </p>
-        <p className="font-mono text-xs text-gray-400 tracking-widest uppercase mb-8">
-          {trip.duration}
-        </p>
-
-        <p className="text-sm font-light text-gray-500 mb-1">
-          {trip.subtitle}
-        </p>
-
-        <div className="w-16 h-px bg-gray-300 mt-10" />
-      </div>
+      <ViaggioItinerary
+        itinerary={trip.itinerary}
+        mapPoints={trip.mapPoints}
+      />
     </div>
   );
 }

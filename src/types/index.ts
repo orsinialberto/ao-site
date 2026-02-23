@@ -25,6 +25,9 @@ export interface TrailPoint {
   name: string;
   x: number;
   y: number;
+  /** Geo coordinates for Leaflet map (optional, used by Trip mapPoints) */
+  lat?: number;
+  lng?: number;
 }
 
 export interface NarrativeBlock {
@@ -70,6 +73,20 @@ export interface TripNarrativeBlock {
   imageSize?: 'large' | 'medium' | 'small';
 }
 
+export interface ItineraryLocation {
+  name: string;
+  lat: number;
+  lng: number;
+  image?: string;
+  imageAlt?: string;
+}
+
+export interface ItineraryDay {
+  day: number;
+  title: string;
+  locations: ItineraryLocation[];
+}
+
 export interface Trip {
   slug: string;
   title: string;
@@ -82,6 +99,7 @@ export interface Trip {
   introductionText?: string;
   mapPoints?: TrailPoint[];
   narrativeBlocks: TripNarrativeBlock[];
+  itinerary?: ItineraryDay[];
 }
 
 // Motorcycle routes with GPX tracks

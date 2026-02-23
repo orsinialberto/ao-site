@@ -1,4 +1,4 @@
-import { Trip } from '@/types';
+import { Trip, ItineraryDay } from '@/types';
 
 const CLOUD = 'https://res.cloudinary.com/dx6hrvg6l/image/upload';
 
@@ -16,10 +16,439 @@ export const trips: Trip[] = [
     introductionText:
       "Il mio viaggio in Cambogia è iniziato da Phnom Penh, una capitale caotica e piena di contrasti, per poi raggiungere Battambang, dove ho incontrato la Cambogia più autentica e rurale. Da lì, un lento viaggio in barca mi ha condotto fino a Siem Reap, porta d’ingresso agli straordinari templi di Angkor, silenziosa testimonianza di un passato grandioso.\n\nIl percorso è poi proseguito verso sud, tra le piantagioni di pepe di Kampot e il mercato del pesce di Kep, dove la vita quotidiana scorre semplice, scandita dal mare e dalle tradizioni.\n\nUn viaggio attraverso la storia, i paesaggi e le persone, che mi ha permesso di scoprire una Cambogia autentica e indimenticabile.",
     mapPoints: [
-      { name: 'Phnom Penh', x: 220, y: 175 },
-      { name: 'Battambang', x: 24, y: 36 },
-      { name: 'Siem Reap', x: 103, y: 12 },
-      { name: 'Kampot', x: 141, y: 260 },
+      { name: 'Phnom Penh', x: 220, y: 175, lat: 11.5564, lng: 104.9282 },
+      { name: 'Battambang', x: 13, y: 103, lat: 13.1028, lng: 103.1982 },
+      { name: 'Siem Reap', x: 103, y: 12, lat: 13.3633, lng: 103.8600 },
+      { name: 'Kampot', x: 141, y: 260, lat: 10.5930, lng: 104.1640 },
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: 'Arrivo a Phnom Penh e Museo Nazione',
+        locations: [
+          {
+            name: 'Museo Nazionale',
+            lat: 11.566285656045393, 
+            lng: 104.92911968017192,
+            image: `${CLOUD}/v1771777099/IMG_0132_j11ky5.heic`,
+            imageAlt: 'Museo Nazionale',
+          },
+          {
+            name: 'Wat Phnom',
+            lat: 11.576283426382695, 
+            lng: 104.92300326510637,
+            image: `${CLOUD}/v1771777134/IMG_0149_zyoxyi.heic`,
+            imageAlt: 'Wat Phnom',
+          },
+          {
+            name: 'Passeggiata lungo il fiume',
+            lat: 11.573034035960719, 
+            lng: 104.92924753173511,
+            image: `${CLOUD}/v1771777107/IMG_0161_pmq2ke.heic`,
+            imageAlt: 'Passeggiata lungo il fiume',
+          }
+        ],
+      },
+      {
+        day: 2,
+        title: 'Killing Field, Palazzo Reale e Silver Pagoda',
+        locations: [
+          {
+            name: 'Killing Field - Choeung Ek',
+            lat: 11.484465854350542, 
+            lng: 104.90175543936641,
+            image: `${CLOUD}/v1771778399/4-IMG_0190_uxiiht.heic`,
+            imageAlt: 'Killing Field',
+          },
+          {
+            name: 'Museo del Genocidio di Tuol Sleng',
+            lat: 11.549071732662817, 
+            lng: 104.91768582462478,
+            image: `${CLOUD}/v1771778387/museo-tuol-sleng-phnom-penh-1_fjlpor.jpg`,
+            imageAlt: 'Tuol Sleng',
+          },
+          {
+            name: 'Palazzo Reale',
+            lat: 11.564055676601367, 
+            lng: 104.93182072406705,
+            image: `${CLOUD}/v1763735057/photo-28_m2ekfl.jpg`,
+            imageAlt: 'Palazzo Reale',
+          },
+          {
+            name: 'Silver Pagoda',
+            lat: 11.562542080823485, 
+            lng: 104.9317992663962,
+            image: `${CLOUD}/v1771778393/3-IMG_0215_qdnri4.heic`,
+            imageAlt: 'Silver Pagoda',
+          }
+        ],
+      },
+      {
+        day: 3,
+        title: 'Viaggio verso Battambang, Street Art e Damrey Sor Pagoda',
+        locations: [
+          {
+            name: 'Street Art',
+            lat: 13.10038,
+            lng: 103.19781,
+            image: `${CLOUD}/v1763735049/2-IMG_0286_chnc7v.jpg`,
+            imageAlt: 'Street Art',
+          },
+          {
+            name: 'Damrey Sor Pagoda',
+            lat: 13.09511,
+            lng: 103.19748,
+            image: `${CLOUD}/v1763735049/1-IMG_0293_utbprg.jpg`,
+            imageAlt: 'Damrey Sor Pagoda',
+          }
+        ],
+      },
+      {
+        day: 4,
+        title: 'Vita Rurale, Ek Phnom Temple, Bamboo Train, Bat Cave e Somrong Knong Killing Field',
+        locations: [
+          {
+            name: 'Produzione di carta di riso',
+            lat: 13.14489,
+            lng: 103.21352,
+            image: `${CLOUD}/v1763735049/3-IMG_0333_adyi0l.jpg`,
+            imageAlt: 'Produzione di carta di riso',
+          },
+          {
+            name: 'Produzione di vino di riso',
+            lat: 13.15482,
+            lng: 103.21232,
+            image: `${CLOUD}/v1763735049/2-IMG_0340_ceaoki.jpg`,
+            imageAlt: 'Produzione di vino di riso',
+          },
+          {
+            name: 'Wat Ek Phnom',
+            lat: 13.16310,
+            lng: 103.18837,
+            image: `${CLOUD}/v1763735049/photo-23_ybu2fb.jpg`,
+            imageAlt: 'Wat Ek Phnom',
+          },
+          {
+            name: 'Vita rurale',
+            lat: 13.12759,
+            lng: 103.22056,
+            image: `${CLOUD}/v1763735049/4-IMG_0322_kolvdm.jpg`,
+            imageAlt: 'Vita rurale',
+          },
+          {
+            name: 'Bamboo Train',
+            lat: 13.06889,
+            lng: 103.21730,
+            image: `${CLOUD}/v1763735049/1-IMG_0431_bk4woz.jpg`,
+            imageAlt: 'Bamboo Train',
+          },
+          {
+            name: 'Bat Cave',
+            lat: 13.02738,
+            lng: 103.09956,
+            image: `${CLOUD}/v1763735049/photo-20_igftfa.jpg`,
+            imageAlt: 'Bat Cave',
+          },
+          {
+            name: 'Somrong Knong Killing Field',
+            lat: 13.02369,
+            lng: 103.10033,
+            image: `${CLOUD}/v1763735049/photo-21_rucq50.jpg`,
+            imageAlt: 'Somrong Knong Killing Field',
+          }
+        ],
+      },
+      {
+        day: 5,
+        title: 'In barca verso Siem Reap e Pub Street',
+        locations: [
+          {
+            name: 'Floating Village',
+            lat: 13.31261,
+            lng: 103.40187,
+            image: `${CLOUD}/v1763735049/photo-19_oynzbt.jpg`,
+            imageAlt: 'Floating Village',
+          },
+          {
+            name: 'Immersi nei fiori di loto',
+            lat: 13.21422,
+            lng: 103.68250,
+            image: `${CLOUD}/v1763735049/2-IMG_0653_uouiya.jpg`,
+            imageAlt: 'Immersi nei fiori di loto',
+          },
+          {
+            name: 'Lago Tonlé Sap',
+            lat: 13.26166,
+            lng: 103.70889,
+            image: `${CLOUD}/v1763735049/1-IMG_0670_hqhw5g.jpg`,
+            imageAlt: 'Lago Tonlé Sap',
+          },
+          {
+            name: 'Siem Reap, Pub Street',
+            lat: 13.35455,
+            lng: 103.85422,
+            image: `${CLOUD}/v1763735049/photo-17_bgww8h.jpg`,
+            imageAlt: 'Siem Reap, Pub Street',
+          }
+        ],
+      },
+      {
+        day: 6,
+        title: 'Grande Circuito di Angkor',
+        locations: [
+          {
+            name: 'Pre Rup Temple',
+            lat: 13.43486,
+            lng: 103.92146,
+            image: `${CLOUD}/v1763735049/IMG_0696_gpztu6.jpg`,
+            imageAlt: 'Pre Rup Temple',
+          },
+          {
+            name: 'East Mebon Temple',
+            lat: 13.44663,
+            lng: 103.92120,
+            image: `${CLOUD}/v1763735049/4-IMG_0780_afxacp.jpg`,
+            imageAlt: 'East Mebon Temple',
+          },
+          {
+            name: 'Ta Som Temple',
+            lat: 13.46455,
+            lng: 103.91177,
+            image: `${CLOUD}/v1763735049/3-IMG_0816_qcvetw.jpg`,
+            imageAlt: 'Ta Som Temple',
+          },
+          {
+            name: 'Neak Poan Temple',
+            lat: 13.46738,
+            lng: 103.89480,
+            image: `${CLOUD}/v1763735049/2-IMG_0878_revb3c.jpg`,
+            imageAlt: 'Neak Poan Temple',
+          },
+          {
+            name: 'Preah Khan Temple',
+            lat: 13.46540,
+            lng: 103.87142,
+            image: `${CLOUD}/v1763735049/1-IMG_0930_yho4cy.jpg`,
+            imageAlt: 'Preah Khan Temple',
+          },
+        ],
+      },
+      {
+        day: 7,
+        title: 'Piccolo Circuito di Angkor',
+        locations: [
+          {
+            name: 'Alba ad Angkor Wat',
+            lat: 13.41230,
+            lng: 103.86736,
+            image: `${CLOUD}/v1763735050/photo-14_plunxb.jpg`,
+            imageAlt: 'Alba ad Angkor Wat',
+          },
+          {
+            name: 'Porta di Angkor Thom',
+            lat: 13.42645,
+            lng: 103.85957,
+            image: `${CLOUD}/v1763735050/photo-11_mbadbe.jpg`,
+            imageAlt: 'Porta di Angkor Thom',
+          },
+          {
+            name: 'Bayon Temple',
+            lat: 13.44214,
+            lng: 103.85918,
+            image: `${CLOUD}/v1763735050/photo-10_bt20ut.jpg`,
+            imageAlt: 'Bayon Temple',
+          },
+          {
+            name: 'Baphuon Temple',
+            lat: 13.44388,
+            lng: 103.85686,
+            image: `${CLOUD}/v1763735050/7-IMG_1374_is6cnc.jpg`,
+            imageAlt: 'Baphuon Temple',
+          },
+          {
+            name: 'Phimeanakas Temple',
+            lat: 13.44567,
+            lng: 103.85680,
+            image: `${CLOUD}/v1763735050/6-IMG_1406_sex2tm.jpg`,
+            imageAlt: 'Phimeanakas Temple',
+          },
+          {
+            name: 'Preah Palilay Temple',
+            lat: 13.44879,
+            lng: 103.85524,
+            image: `${CLOUD}/v1763735050/5-IMG_1422_f6ursa.jpg`,
+            imageAlt: 'Preah Palilay Temple',
+          },
+          {
+            name: 'Terrace of the Leper King',
+            lat: 13.44740,
+            lng: 103.85913,
+            image: `${CLOUD}/v1763735050/4-IMG_1462_hzozf3.jpg`,
+            imageAlt: 'Terrace of the Leper King',
+          },
+          {
+            name: 'Ta Keo Temple',
+            lat: 13.44476,
+            lng: 103.88344,
+            image: `${CLOUD}/v1763735050/3-IMG_1473_vaczxy.jpg`,
+            imageAlt: 'Ta Keo Temple',
+          },
+          {
+            name: 'Ta Prohm Temple',
+            lat: 13.43504,
+            lng: 103.88970,
+            image: `${CLOUD}/v1763735050/2-IMG_1598_eiwxvh.jpg`,
+            imageAlt: 'Ta Prohm Temple',
+          },
+          {
+            name: 'Banteay Kdei Temple',
+            lat: 13.43039,
+            lng: 103.90338,
+            image: `${CLOUD}/v1763735050/1-IMG_1666_zzwuml.jpg`,
+            imageAlt: 'Banteay Kdei Temple',
+          }
+        ],
+      },
+      {
+        day: 8,
+        title: 'Grand Tour esteso di Angkor',
+        locations: [
+          {
+            name: 'Banteay Srei Temple',
+            lat: 13.59738,
+            lng: 103.96571,
+            image: `${CLOUD}/v1763735049/photo-05_qeom3w.jpg`,
+            imageAlt: 'Banteay Srei Temple',
+          },
+          {
+            name: 'Preah Ko Temple',
+            lat: 13.34402,
+            lng: 103.97391,
+            image: `${CLOUD}/v1763735049/4-IMG_1805_qy6n5v.jpg`,
+            imageAlt: 'Preah Ko Temple',
+          },
+          {
+            name: 'Bakong Temple',
+            lat: 13.33592,
+            lng: 103.97628,
+            image: `${CLOUD}/v1763735049/photo-04_vq986b.jpg`,
+            imageAlt: 'Bakong Temple',
+          },
+          {
+            name: 'Lolei Temple',
+            lat: 13.35266,
+            lng: 103.97456,
+            image: `${CLOUD}/v1763735049/3-IMG_1892_pcrlpi.jpg`,
+            imageAlt: 'Preah Ko Temple',
+          },
+          {
+            name: 'La mia guida tuk tuk',
+            lat: 13.36366,
+            lng: 103.85211,
+            image: `${CLOUD}/v1763735049/2-IMG_1898_tttidb.jpg`,
+            imageAlt: 'La mia guida tuk tuk',
+          },
+          {
+            name: 'Tamonto a Phnom Bakheng',
+            lat: 13.42370,
+            lng: 103.85597,
+            image: `${CLOUD}/v1763735049/1-IMG_1979_gvpavu.jpg`,
+            imageAlt: 'Tamonto a Phnom Bakheng',
+          },
+        ],
+      },
+      {
+        day: 9,
+        title: 'Koh Ker e Preah Vihear',
+        locations: [
+          {
+            name: 'Koh Ker',
+            lat: 13.78337,
+            lng: 104.53788,
+            image: `${CLOUD}/v1763735049/photo-02_euku4l.jpg`,
+            imageAlt: 'Koh Ker',
+          },
+          {
+            name: 'Preah Vihear',
+            lat: 14.39086,
+            lng: 104.68035,
+            image: `${CLOUD}/v1763735049/IMG_2128_fekqyq.jpg`,
+            imageAlt: 'Preah Vihear',
+          },
+        ],
+      },
+      {
+        day: 10,
+        title: 'Viaggio verso Kampot',
+        locations: [
+          {
+            name: 'Kampot',
+            lat: 10.60494,
+            lng: 104.17976,
+            image: `${CLOUD}/v1763735024/IMG_2199_xre6k0.jpg`,
+            imageAlt: 'Kampot',
+          },
+        ],
+      },
+      {
+        day: 11,
+        title: 'Kampot e Piantagioni di pepe',
+        locations: [
+          {
+            name: 'Piantagione di pepe',
+            lat: 10.61336,
+            lng: 104.17109,
+            image: `${CLOUD}/v1763804680/3-IMG_2229_jyqzii.jpg`,
+            imageAlt: 'piantagione di pepe',
+          },
+          {
+            name: 'Mercato di Kampot',
+            lat: 10.61601,
+            lng: 104.18036,
+            image: `${CLOUD}/v1763804680/4-IMG_2222_p7ou6m.jpg`,
+            imageAlt: 'Mercato di Kampot',
+          },
+        ],
+      },
+      {
+        day: 12,
+        title: 'Kep e il mercato del granchio',
+        locations: [
+          {
+            name: 'Mercato del granchio',
+            lat: 10.48864,
+            lng: 104.28876,
+            image: `${CLOUD}/v1763804680/2-IMG_2259_ewrq5m.jpg`,
+            imageAlt: 'Mercato del granchio',
+          },
+        ],
+      },
+      {
+        day: 13,
+        title: 'Rientro a Phnom Penh e mercato notturno',
+        locations: [
+          {
+            name: 'Mercato notturno',
+            lat: 11.57420,
+            lng: 104.92779,
+            image: `${CLOUD}/v1763735044/1-IMG_2286_vus5nh.jpg`,
+            imageAlt: 'Mercato notturno',
+          },
+        ],
+      },
+      {
+        day: 14,
+        title: 'Mercato Russo e Partenza',
+        locations: [
+          {
+            name: 'Mercato Russo',
+            lat: 11.5411, 
+            lng: 104.9143,
+            image: `${CLOUD}/v1763735049/IMG_2281_jpg_mudfni.jpg`,
+            imageAlt: 'Mercato Russo',
+          },
+        ],
+      },
     ],
     narrativeBlocks: [
       {
@@ -127,12 +556,78 @@ export const trips: Trip[] = [
     introductionText:
       "Le Dolomiti sono uno di quei posti che avevo sempre sognato di sciare. Questa volta base a Corvara, nel cuore del Sellaronda: un anello che collega quattro passi e quattro valli in un unico giro sugli sci. Oltre al Sellaronda ho esplorato la Marmolada, le 5 Torri, Cortina, e mi sono spinto fino a Ortisei, Santa Cristina e la Val di Fassa. Il Passo Falzarego e l'Armentarola hanno chiuso un viaggio indimenticabile tra le vette patrimonio UNESCO.",
     mapPoints: [
-      { name: 'Corvara', x: 120, y: 100 },
-      { name: 'Marmolada', x: 180, y: 140 },
-      { name: 'Cortina', x: 200, y: 60 },
-      { name: 'Ortisei', x: 50, y: 50 },
-      { name: 'Val di Fassa', x: 130, y: 180 },
-      { name: 'Armentarola', x: 80, y: 130 },
+      { name: 'Corvara', x: 120, y: 100, lat: 46.5500, lng: 11.8740 },
+      { name: 'Marmolada', x: 180, y: 140, lat: 46.4340, lng: 11.8600 },
+      { name: 'Cortina', x: 200, y: 60, lat: 46.5405, lng: 12.1357 },
+      { name: 'Ortisei', x: 50, y: 50, lat: 46.5743, lng: 11.6714 },
+      { name: 'Val di Fassa', x: 130, y: 180, lat: 46.4650, lng: 11.7680 },
+      { name: 'Armentarola', x: 80, y: 130, lat: 46.5630, lng: 11.9210 },
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: 'Arrivo a Corvara',
+        locations: [
+          { name: 'Corvara', lat: 46.5500, lng: 11.8740 },
+        ],
+      },
+      {
+        day: 2,
+        title: 'Sellaronda',
+        locations: [
+          { name: 'Passo Campolongo', lat: 46.5290, lng: 11.8510 },
+          { name: 'Passo Pordoi', lat: 46.4880, lng: 11.8140 },
+          { name: 'Passo Sella', lat: 46.5090, lng: 11.7620 },
+          { name: 'Passo Gardena', lat: 46.5530, lng: 11.8100 },
+        ],
+      },
+      {
+        day: 3,
+        title: 'Giro Verde e Giro Arancio',
+        locations: [
+          { name: 'Arabba', lat: 46.4970, lng: 11.8730 },
+          { name: 'Canazei', lat: 46.4767, lng: 11.7700 },
+        ],
+      },
+      {
+        day: 4,
+        title: 'Marmolada',
+        locations: [
+          { name: 'Marmolada', lat: 46.4340, lng: 11.8600 },
+        ],
+      },
+      {
+        day: 5,
+        title: '5 Torri e Cortina',
+        locations: [
+          { name: '5 Torri', lat: 46.5220, lng: 12.0700 },
+          { name: 'Cortina', lat: 46.5405, lng: 12.1357 },
+        ],
+      },
+      {
+        day: 6,
+        title: 'Ortisei e Seceda',
+        locations: [
+          { name: 'Ortisei', lat: 46.5743, lng: 11.6714 },
+          { name: 'Seceda', lat: 46.5990, lng: 11.7270 },
+        ],
+      },
+      {
+        day: 7,
+        title: 'Santa Cristina e Val di Fassa',
+        locations: [
+          { name: 'Santa Cristina', lat: 46.5580, lng: 11.7190 },
+          { name: 'Val di Fassa', lat: 46.4650, lng: 11.7680 },
+        ],
+      },
+      {
+        day: 8,
+        title: 'Passo Falzarego e Armentarola',
+        locations: [
+          { name: 'Passo Falzarego', lat: 46.5190, lng: 12.0090 },
+          { name: 'Armentarola', lat: 46.5630, lng: 11.9210 },
+        ],
+      },
     ],
     narrativeBlocks: [
       {
