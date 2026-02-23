@@ -11,6 +11,7 @@ interface ViaggioTabsProps {
 const tabs = [
   { label: 'Racconto', href: (slug: string) => `/viaggi/${slug}` },
   { label: 'Itinerario', href: (slug: string) => `/viaggi/${slug}/itinerario` },
+  { label: 'Galleria', href: (slug: string) => `/viaggi/${slug}/galleria` },
 ];
 
 export default function ViaggioTabs({ slug }: ViaggioTabsProps) {

@@ -42,6 +42,13 @@ body {
   }
 }
 
+/* Viaggio gallery mosaic: dynamic row count only on desktop */
+@media (min-width: 1024px) {
+  .viaggio-gallery-mosaic {
+    grid-template-rows: repeat(var(--gallery-rows, 24), minmax(80px, auto));
+  }
+}
+
 /* Stage block responsive grid */
 @media (min-width: 1024px) {
   .stage-grid {
