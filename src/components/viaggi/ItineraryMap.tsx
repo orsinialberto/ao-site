@@ -1,15 +1,17 @@
 'use client';
 
 import { useEffect, useRef, useMemo, useState, useCallback, memo } from 'react';
-import { MapContainer, TileLayer, CircleMarker, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, CircleMarker, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import gpxParser from 'gpxparser';
 import { ItineraryLocation } from '@/types';
 
 interface ItineraryMapProps {
   locations: ItineraryLocation[];
   allLocations: ItineraryLocation[];
   hoveredLocationName?: string | null;
+  gpxUrl?: string | null;
 }
 
 interface FitBoundsProps {
@@ -43,6 +45,43 @@ function FitBounds({ locations, onFlyStart, onFlyEnd }: FitBoundsProps) {
   }, [locations, map, onFlyStart, onFlyEnd]);
 
   return null;
+}
+
+function GpxTrack({ gpxUrl }: { gpxUrl: string }) {
+  const map = useMap();
+  const [positions, setPositions] = useState<[number, number][]>([]);
+  const prevUrl = useRef('');
+
+  useEffect(() => {
+    if (gpxUrl === prevUrl.current) return;
+    prevUrl.current = gpxUrl;
+
+    fetch(gpxUrl)
+      .then((res) => res.text())
+      .then((text) => {
+        const gpx = new gpxParser();
+        gpx.parse(text);
+        const pts =
+          gpx.tracks[0]?.points.map(
+            (p: { lat: number; lon: number }) => [p.lat, p.lon] as [number, number],
+          ) ?? [];
+        setPositions(pts);
+        if (pts.length > 1) {
+          const bounds = L.latLngBounds(pts);
+          map.flyToBounds(bounds, { padding: [50, 50], maxZoom: 14, duration: 0.8 });
+        }
+      })
+      .catch(() => setPositions([]));
+  }, [gpxUrl, map]);
+
+  if (positions.length < 2) return null;
+
+  return (
+    <Polyline
+      positions={positions}
+      pathOptions={{ color: '#171717', weight: 2.5, opacity: 0.55 }}
+    />
+  );
 }
 
 const Marker = memo(function Marker({
@@ -85,6 +124,7 @@ export default function ItineraryMap({
   locations,
   allLocations,
   hoveredLocationName = null,
+  gpxUrl = null,
 }: ItineraryMapProps) {
   const [isFlying, setIsFlying] = useState(false);
   const onFlyStart = useCallback(() => setIsFlying(true), []);
@@ -127,10 +167,12 @@ export default function ItineraryMap({
       />
 
       <FitBounds
-        locations={locations}
+        locations={gpxUrl ? [] : locations}
         onFlyStart={onFlyStart}
         onFlyEnd={onFlyEnd}
       />
+
+      {gpxUrl && <GpxTrack gpxUrl={gpxUrl} />}
 
       {uniqueLocations.map((loc) => (
         <Marker

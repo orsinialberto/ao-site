@@ -53,6 +53,12 @@ export default function ViaggioItinerary({
     return day ? day.locations : mainLocations;
   }, [mapDay, itinerary, mainLocations]);
 
+  const activeGpxUrl = useMemo(() => {
+    if (mapDay === null) return null;
+    const day = itinerary.find((d) => d.day === mapDay);
+    return day?.gpxUrl ?? null;
+  }, [mapDay, itinerary]);
+
   const displayLocations = useMemo(() => {
     if (mapDay === null) return mainLocations;
     return allLocations;
@@ -85,6 +91,7 @@ export default function ViaggioItinerary({
             locations={activeLocations}
             allLocations={displayLocations}
             hoveredLocationName={hoveredLocationName}
+            gpxUrl={activeGpxUrl}
           />
         </div>
       </div>

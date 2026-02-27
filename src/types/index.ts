@@ -85,6 +85,7 @@ export interface ItineraryDay {
   day: number;
   title: string;
   locations: ItineraryLocation[];
+  gpxUrl?: string;
 }
 
 export interface Trip {
@@ -96,6 +97,8 @@ export interface Trip {
   dates: { start: string; end: string };
   location: string;
   duration: string;
+  /** Cloudinary folder name for gallery (e.g. sellaronda-2026). If missing, uses slug. */
+  galleryFolder?: string;
   introductionText?: string;
   mapPoints?: TrailPoint[];
   narrativeBlocks: TripNarrativeBlock[];

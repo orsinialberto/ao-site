@@ -125,7 +125,7 @@ export default async function ViaggioGalleriaPage({
   if (!trip) notFound();
 
   const dateLabel = formatDates(trip.dates.start, trip.dates.end);
-  const folderPrefix = `travels/${slug}`;
+  const folderPrefix = `travels/${trip.galleryFolder ?? slug}`;
   const images = await getGalleryImagesByPrefix(folderPrefix);
 
   return (
