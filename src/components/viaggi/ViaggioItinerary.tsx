@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { ItineraryDay, ItineraryLocation, TrailPoint } from '@/types';
 import { cloudinaryThumb } from '@/lib/cloudinary';
+import PlaceTypeIcon from '@/components/viaggi/PlaceTypeIcon';
 
 const ItineraryMap = dynamic(() => import('./ItineraryMap'), { ssr: false });
 
@@ -195,10 +196,12 @@ function LocationCard({ location, onHover }: LocationCardProps) {
             sizes="80px"
           />
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center border border-gray-200">
-            <span className="text-xl text-gray-400" aria-hidden>
-              📍
-            </span>
+          <div className="absolute inset-0 flex items-center justify-center text-gray-900 transition-opacity duration-300 group-hover:opacity-70">
+            <PlaceTypeIcon
+              location={location}
+              className="h-full w-full"
+              strokeWidth={1.05}
+            />
           </div>
         )}
       </div>
