@@ -61,6 +61,12 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Leaflet custom div markers (no default white tile) */
+.ao-leaflet-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
 /* Itinerary map marker pulse effect */
 .marker-pulse {
   transform-origin: center;

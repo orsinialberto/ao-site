@@ -1,11 +1,15 @@
 'use client';
 
 import { useEffect, useRef, useMemo, useState, useCallback, memo } from 'react';
-import { MapContainer, TileLayer, CircleMarker, Polyline, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker as LeafletMarker, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import gpxParser from 'gpxparser';
 import { ItineraryLocation } from '@/types';
+import {
+  placeTypeLeafletHtml,
+  resolvePlaceType,
+} from '@/lib/placeTypeMarkers';
 
 interface ItineraryMapProps {
   locations: ItineraryLocation[];
@@ -84,7 +88,7 @@ function GpxTrack({ gpxUrl }: { gpxUrl: string }) {
   );
 }
 
-const Marker = memo(function Marker({
+const StopMarker = memo(function StopMarker({
   loc,
   isActive,
   isHovered,
@@ -95,28 +99,23 @@ const Marker = memo(function Marker({
   isHovered: boolean;
   isFlying: boolean;
 }) {
-  const radius = isHovered ? 8 : isActive ? 5 : 3;
-  const weight = isHovered ? 3 : isActive ? 2 : 1;
-  const fillOpacity = isFlying ? 0 : isHovered ? 1 : isActive ? 1 : 0.5;
-  const opacity = isFlying ? 0 : 1;
-  const pathOptions = useMemo(
-    () => ({
-      color: isHovered || isActive ? '#171717' : '#d1d5db',
-      fillColor: isHovered || isActive ? '#171717' : '#9ca3af',
-      fillOpacity,
-      opacity,
-      weight,
-      className: isHovered ? 'marker-pulse' : '',
-    }),
-    [isHovered, isActive, fillOpacity, opacity, weight],
+  const placeType = useMemo(() => resolvePlaceType(loc), [loc.name, loc.placeType]);
+  const icon = useMemo(
+    () =>
+      L.divIcon({
+        className: 'ao-leaflet-marker',
+        html: placeTypeLeafletHtml(placeType, {
+          isActive,
+          isHovered,
+          isFlying,
+        }),
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+      }),
+    [placeType, isActive, isHovered, isFlying],
   );
   return (
-    <CircleMarker
-      key={`${loc.name}-${loc.lat}-${loc.lng}`}
-      center={[loc.lat, loc.lng]}
-      radius={radius}
-      pathOptions={pathOptions}
-    />
+    <LeafletMarker position={[loc.lat, loc.lng]} icon={icon} />
   );
 });
 
@@ -175,7 +174,7 @@ export default function ItineraryMap({
       {gpxUrl && <GpxTrack gpxUrl={gpxUrl} />}
 
       {uniqueLocations.map((loc) => (
-        <Marker
+        <StopMarker
           key={`${loc.name}-${loc.lat}-${loc.lng}`}
           loc={loc}
           isActive={activeNames.has(loc.name)}

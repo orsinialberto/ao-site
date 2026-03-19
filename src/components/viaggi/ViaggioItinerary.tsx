@@ -44,7 +44,12 @@ export default function ViaggioItinerary({
         typeof mp.lat === 'number' && typeof mp.lng === 'number',
     );
     if (withCoords.length === 0) return allLocations;
-    return withCoords.map((mp) => ({ name: mp.name, lat: mp.lat, lng: mp.lng }));
+    return withCoords.map((mp) => ({
+      name: mp.name,
+      lat: mp.lat,
+      lng: mp.lng,
+      placeType: mp.placeType,
+    }));
   }, [mapPoints, allLocations]);
 
   const activeLocations = useMemo(() => {

@@ -3,6 +3,7 @@
 import { useRef, useMemo } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { TrailPoint } from '@/types';
+import { PLACE_TYPE_PATH_SPEC, resolvePlaceType } from '@/lib/placeTypeMarkers';
 
 interface TrailMapProps {
   points: TrailPoint[];
@@ -251,6 +252,14 @@ export default function TrailMap({ points, className = '' }: TrailMapProps) {
         const isStart = i === 0;
         const pl = placements[i];
 
+        const pt = resolvePlaceType({
+          name: point.name,
+          placeType: point.placeType,
+        });
+        const spec = PLACE_TYPE_PATH_SPEC[pt];
+        const stroke = isStart ? '#171717' : '#9ca3af';
+        const scale = isStart ? 0.4 : 0.3;
+
         return (
           <motion.g
             key={point.name + i}
@@ -258,13 +267,22 @@ export default function TrailMap({ points, className = '' }: TrailMapProps) {
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ delay, duration: 0.4 }}
           >
-            {/* Dot */}
-            <circle
-              cx={point.x}
-              cy={point.y}
-              r={isStart ? 5 : 3}
-              fill={isStart ? '#171717' : '#9ca3af'}
-            />
+            <g transform={`translate(${point.x},${point.y}) scale(${scale})`}>
+              <g transform="translate(-12,-12)">
+                {spec.style === 'fill' ? (
+                  <circle cx={12} cy={12} r={4} fill={stroke} />
+                ) : (
+                  <path
+                    d={spec.d}
+                    fill="none"
+                    stroke={stroke}
+                    strokeWidth={isStart ? 1.75 : 1.35}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                )}
+              </g>
+            </g>
 
             {/* Label */}
             <text

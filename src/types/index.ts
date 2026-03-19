@@ -21,6 +21,17 @@ export interface Photo {
 
 // Trails
 
+/** Map / itinerary marker category (optional on data; missing values are inferred from name). */
+export type PlaceType =
+  | 'city'
+  | 'landmark'
+  | 'nature'
+  | 'transport'
+  | 'stay'
+  | 'food'
+  | 'memorial'
+  | 'default';
+
 export interface TrailPoint {
   name: string;
   x: number;
@@ -28,6 +39,7 @@ export interface TrailPoint {
   /** Geo coordinates for Leaflet map (optional, used by Trip mapPoints) */
   lat?: number;
   lng?: number;
+  placeType?: PlaceType;
 }
 
 export interface NarrativeBlock {
@@ -79,6 +91,7 @@ export interface ItineraryLocation {
   lng: number;
   image?: string;
   imageAlt?: string;
+  placeType?: PlaceType;
 }
 
 export interface ItineraryDay {

@@ -16,10 +16,10 @@ export const trips: Trip[] = [
     introductionText:
       "Il mio viaggio in Cambogia è iniziato da Phnom Penh, una capitale caotica e piena di contrasti, per poi raggiungere Battambang, dove ho incontrato la Cambogia più autentica e rurale. Da lì, un lento viaggio in barca mi ha condotto fino a Siem Reap, porta d’ingresso agli straordinari templi di Angkor, silenziosa testimonianza di un passato grandioso.\n\nIl percorso è poi proseguito verso sud, tra le piantagioni di pepe di Kampot e il mercato del pesce di Kep, dove la vita quotidiana scorre semplice, scandita dal mare e dalle tradizioni.\n\nUn viaggio attraverso la storia, i paesaggi e le persone, che mi ha permesso di scoprire una Cambogia autentica e indimenticabile.",
     mapPoints: [
-      { name: 'Phnom Penh', x: 220, y: 175, lat: 11.5564, lng: 104.9282 },
-      { name: 'Battambang', x: 13, y: 103, lat: 13.1028, lng: 103.1982 },
-      { name: 'Siem Reap', x: 103, y: 12, lat: 13.3633, lng: 103.8600 },
-      { name: 'Kampot', x: 141, y: 260, lat: 10.5930, lng: 104.1640 },
+      { name: 'Phnom Penh', x: 220, y: 175, lat: 11.5564, lng: 104.9282, placeType: 'city' },
+      { name: 'Battambang', x: 13, y: 103, lat: 13.1028, lng: 103.1982, placeType: 'city' },
+      { name: 'Siem Reap', x: 103, y: 12, lat: 13.3633, lng: 103.8600, placeType: 'city' },
+      { name: 'Kampot', x: 141, y: 260, lat: 10.5930, lng: 104.1640, placeType: 'city' },
     ],
     itinerary: [
       {
@@ -557,13 +557,13 @@ export const trips: Trip[] = [
     introductionText:
       "Le Dolomiti sono tra i luoghi più spettacolari d’Italia dove sciare. Partendo da località come Corvara, si possono percorrere chilometri di piste perfettamente collegate, attraversando passi alpini e scenari unici. Sciare qui significa muoversi tra alcune delle vette più belle del Paese, riconosciute come Patrimonio dell’Umanità dall’UNESCO.",
     mapPoints: [
-      { name: 'Corvara', x: 175, y: 63, lat: 46.5500, lng: 11.8740 },
-      { name: 'Cortina', x: 335, y: 80, lat: 46.541539756469064, lng: 12.098508408541008 },
-      { name: 'Arabba', x: 174, y: 126, lat: 46.49806583416228, lng: 11.869091983849772 },
-      { name: 'Canazei', x: 104, y: 153, lat: 46.492610755671606, lng: 11.780997622098631 },
-      { name: 'Selva di Val Gardena', x: 98, y: 55, lat: 46.55342032770246, lng: 11.76197684201025 },
-      { name: 'Ortisei', x: 36, y: 31, lat: 46.5751, lng: 11.6684 },
-      { name: 'Corvara', x: 175, y: 63, lat: 46.5500, lng: 11.8740 },
+      { name: 'Corvara', x: 175, y: 63, lat: 46.5500, lng: 11.8740, placeType: 'city' },
+      { name: 'Cortina', x: 335, y: 80, lat: 46.541539756469064, lng: 12.098508408541008, placeType: 'city' },
+      { name: 'Arabba', x: 174, y: 126, lat: 46.49806583416228, lng: 11.869091983849772, placeType: 'city' },
+      { name: 'Canazei', x: 104, y: 153, lat: 46.492610755671606, lng: 11.780997622098631, placeType: 'city' },
+      { name: 'Selva di Val Gardena', x: 98, y: 55, lat: 46.55342032770246, lng: 11.76197684201025, placeType: 'city' },
+      { name: 'Ortisei', x: 36, y: 31, lat: 46.5751, lng: 11.6684, placeType: 'city' },
+      { name: 'Corvara', x: 175, y: 63, lat: 46.5500, lng: 11.8740, placeType: 'city' },
     ],
     itinerary: [
       {
